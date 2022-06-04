@@ -1,0 +1,12 @@
+{
+  "name": "sass-store-project",
+  "version": "1.0.0",
+  "description": "web application utilizing sass",
+  "main": "index.html",
+  "repository": "https://github.com/MAbdurahman/sass-store-project.git",
+  "author": "Mahdi Abdurrahman <mdbdrrhm@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "scss": "sass scss/main.scss css/main.css --watch --style expanded"
+  }
+}

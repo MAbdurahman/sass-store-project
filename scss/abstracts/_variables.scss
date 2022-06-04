@@ -1,0 +1,58 @@
+/*=============================================
+          _variables.scss
+================================================*/
+@use 'sass:color';
+
+// colors
+$color-primary: #d3ab55;
+$color-primary-light: lighten($color-primary, 20%);
+$color-primary-dark: darken($color-primary, 5%);
+
+$color-secondary: #bbb;
+$color-secondary-light: lighten($color-secondary, 20%);
+$color-secondary-dark: darken($color-secondary,20%);
+
+$color-tertiary: #fe3;
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-white: #ece6e6;
+$color-white-1: #f7f7f7;
+$color-white-2: #eee;
+$color-white-off: #fafaf9;
+$color-white-pure: #ffffff;
+
+$color-black: #20212d;
+$color-black-dark: #262626;
+$color-black-off: #393b3d;
+$color-black-pure: #000000;
+
+$color-light-gray: #e2e2e4;
+$color-med-gray: #a9a9a9;
+$color-dark-gray: #626262;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+// border
+$default-border: 1px solid $color-grey-dark;
+
+// border radius
+$default-border-radius: 3px;
+
+// box shadow
+$default-box-shadow: 1px 3px 5px rgba($color-black-pure, 0.2);
+
+// spacing
+$default-spacing: 8px 16px;
+$default-spacing-bottom: 8px;
+$default-spacing-top: 8px;
+$default-spacing-left: 16px;
+$default-spacing-right: 16px;
+
+// fonts
+$font-dancing-script: 'Dancing Script', cursive;
+$font-josefin-sans: 'Josefin Sans', sans-serif;
+$font-nunito: 'Nunito', sans-serif;
+

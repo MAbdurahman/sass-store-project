@@ -1,0 +1,44 @@
+/*=============================================
+          _main-name.scss
+================================================*/
+@use './../abstracts' as abs;
+
+.main-name {
+  font-family: abs.$font-nunito;
+  font-size: 50px;
+  color: abs.$color-secondary;
+  @include abs.text-styles();
+
+
+@include abs.responsive-max-width(1000px) {
+  font-size: 40px;
+
+}
+
+  /*@include abs.responsive-max-width(800px) {
+    font-size: 32px;
+
+  }*/
+
+  @include abs.responsive-max-width(500px) {
+    font-size: 20px;
+    text-align: center;
+
+  }
+
+}
+
+.sub-name {
+  font-family: abs.$font-josefin-sans;
+  font-size: 18px;
+  color: abs.$color-secondary;
+  text-align: center;
+  @include abs.text-styles();
+
+  @include abs.responsive-max-width(500px) {
+    font-size: 12px;
+    text-align: center;
+
+  }
+
+}

@@ -1,0 +1,227 @@
+/*=============================================
+          _mixins.scss
+================================================*/
+@use './variables' as var;
+@use './functions' as func;
+
+
+@mixin absolute-center-top-position($top-value: 50%) {
+  position: absolute;
+  top: $top-value;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+@mixin anchor-underline-hover-effect($clr: #fff) {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.25em;
+  text-decoration: none;
+  color: $clr;
+
+  &::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: $clr;
+    transition: width 0.25s ease-in-out;
+  }
+
+  &:hover::before {
+    width: 100%;
+    left: 0;
+    right: auto;
+  }
+}
+
+@mixin background-linear-gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+
+  @if $orientation == 'vertical' {
+    background: -webkit-linear-gradient(top, $start-color, $end-color);
+    background: linear-gradient(to bottom, $start-color, $end-color);
+
+  } @else if $orientation == 'horizontal' {
+    background: -webkit-linear-gradient(left, $start-color, $end-color);
+    background: linear-gradient(to right, $start-color, $end-color);
+
+  } @else {
+    background: -webkit-radial-gradient(
+                    center,
+                    ellipse cover,
+                    $start-color,
+                    $end-color
+    );
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}
+
+
+
+@mixin background-transition-basic($initial, $hover, $inverted: false) {
+  background: linear-gradient(
+                  90deg,
+                  $hover 0%,
+                  $hover 50%,
+                  $initial 50%,
+                  $initial 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+
+  background-position: right bottom;
+  @if $inverted {
+    background-position: left bottom;
+  }
+  transition: background-position 0.25s ease-out;
+
+  &:hover {
+    background-position: left bottom;
+    @if $inverted {
+      background-position: right bottom;
+    }
+  }
+}
+
+@mixin button-default($font: var.$font-josefin-sans) {
+  width: 170px;
+  height: 45px;
+  padding: 1em 2em;
+  font-family: $font;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid var.$color-primary;
+  outline: none;
+  color: var.$color-primary;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: var.$color-white;
+
+  }
+}
+
+
+@mixin center-position($position) {
+  position: absolute;
+
+  @if $position == 'vertical' {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+  } @else if $position == 'horizontal' {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+
+  } @else if $position == 'both' {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+  }
+}
+
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
+
+@mixin flex-center-vertical {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-horizontal {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin vertical-centered-element {
+  @include flex-center-vertical;
+}
+
+@mixin horizontally-centered-element {
+  flex-direction: column;
+  @include flex-center-vertical;
+}
+
+
+@mixin dimension($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin circle($width, $height, $radius) {
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+}
+
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin pseudo-class(
+  $width: 100%,
+  $height: 100%,
+  $display: inline-block,
+  $pos: absolute,
+  $content: ''
+) {
+  content: $content;
+  display: $display;
+  position: $pos;
+  @include dimension($width, $height);
+}
+
+
+@mixin responsive-max-width($max-width) {
+  @media only screen and (max-width: $max-width) {
+    @content;
+  }
+
+}
+
+@mixin responsive-min-width($min-width) {
+  @media only screen and (min-width: $min-width) {
+    @content;
+  }
+
+}
+
+@mixin text-styles($transform: uppercase) {
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: $transform;
+}
+
+@mixin transition-basic($param ...) {
+  transition: $param;
+}

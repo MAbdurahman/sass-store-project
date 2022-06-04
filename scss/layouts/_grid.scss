@@ -1,0 +1,50 @@
+/*=============================================
+            _grid.scss
+================================================*/
+@use './../abstracts' as abs;
+
+.container {
+  /*  width: calc(100% - 2em);
+    max-width: 1190px;
+    margin: 0 auto;*/
+
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include abs.responsive-min-width(576px) {
+    max-width: 544px;
+  }
+  @include abs.responsive-min-width(768px) {
+    max-width: 720px;
+  }
+  @include abs.responsive-min-width(992px) {
+    max-width: 960px;
+  }
+  @include abs.responsive-min-width(1200px) {
+    max-width: 1152px;
+  }
+}
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+$columns: 12;
+
+@for $i from 1 through $columns {
+  .col-#{$i} {
+
+    flex: 0 0 calc(100% / #{$columns} * #{$i});
+  }
+  .col-offset-#{$i} {
+    margin-left: calc(100% / #{$columns} * #{$i});
+
+  }
+
+}

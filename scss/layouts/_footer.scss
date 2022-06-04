@@ -1,0 +1,79 @@
+/*=============================================
+              _footer.scss
+================================================*/
+@use './../abstracts' as abs;
+
+.footer {
+  @include abs.flex-center-column;
+  padding: 70px 0;
+
+  @include abs.responsive-max-width(500px) {
+    padding: 40px 0;
+
+  }
+
+  &-header {
+    @include abs.flex-center-vertical;
+    margin-bottom: 70px;
+
+
+  }
+
+  .social-media {
+    display: flex;
+    width: 300px;
+    justify-content: space-evenly;
+    margin-bottom: 70px;
+
+    @include abs.responsive-max-width(500px) {
+      width: 200px;
+      margin-bottom: 40px;
+
+    }
+
+
+    &-item {
+      list-style: none;
+    }
+
+    &-link {
+      text-decoration: none;
+      font-size: 50px;
+      color: abs.$color-secondary;
+      transition: color .7s;
+
+      &:hover {
+        color: abs.$color-primary;
+      }
+
+      @include abs.responsive-max-width(1000px) {
+        font-size: 32px;
+
+      }
+
+      @include abs.responsive-max-width(1000px) {
+        font-size: 24px;
+
+      }
+    }
+  }
+
+  &-copyright-paragraph {
+    font-family: abs.$font-josefin-sans;
+    font-size: 18px;
+    color: abs.$color-secondary;
+    @include abs.text-styles(capitalize);
+
+    @include abs.responsive-max-width(800px) {
+      width: 70%;
+      margin: auto;
+      text-align: center;
+
+    }
+
+    @include abs.responsive-max-width(500px) {
+      font-size: 14px;
+    }
+  }
+
+}

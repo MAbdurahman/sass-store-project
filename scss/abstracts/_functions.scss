@@ -1,0 +1,24 @@
+/*=============================================
+          _functions.scss
+================================================*/
+@use 'sass:math';
+
+@function convert-to-rem($pixel) {
+  @if (math.is-unitless($pixel)) {
+    @return math.div($pixel, 16) + rem;
+
+  } @else {
+    @error 'Units are not allowed in convert-to-rem function!';
+
+  }
+}
+
+@function convert-to-em($pixel) {
+  @if (math.is-unitless($pixel)) {
+    @return math.div($pixel, 16) + em;
+
+  } @else {
+    @error 'Units are not allowed in convert-to-em function!';
+
+  }
+}

@@ -1,0 +1,108 @@
+/*=============================================
+              _card.scss
+================================================*/
+@use './../abstracts' as abs;
+
+.card {
+  position: relative;
+  width: 33.3333%;
+  height: 30vw;
+  overflow: hidden;
+
+  &:hover .card-overlay {
+    left: 0;
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    background-color: rgba(abs.$color-primary, .5);
+    color: abs.$color-white-pure;
+    z-index: 10;
+    @include abs.flex-center;
+    flex-direction: column;
+    @extend %full-space;
+    transition: left .7s;
+
+
+    &-heading {
+      font-family: abs.$font-nunito;
+      font-size: 48px;
+      @include abs.text-styles(capitalize);
+
+@include abs.responsive-max-width(900px) {
+  font-size: 32px;
+
+}
+
+      @include abs.responsive-max-width(650px) {
+          font-size: 24px;
+
+
+      }
+
+      @include abs.responsive-max-width(500px) {
+
+        display: none;
+
+
+      }
+    }
+
+    &-paragraph {
+      font-family: abs.$font-josefin-sans;
+      font-size: 30px;
+      margin-bottom: 30px;
+      @include abs.text-styles(capitalize);
+
+      @include abs.responsive-max-width(900px) {
+        font-size: 20px;
+
+      }
+
+      @include abs.responsive-max-width(650px) {
+        font-size: 16px;
+
+
+      }
+
+      @include abs.responsive-max-width(500px) {
+
+        display: none;
+
+
+      }
+
+    }
+
+    &-btn {
+      @include abs.button-default();
+      width: 152px;
+      height: 40px;
+      font-size: 12px;
+      /*@include abs.background-transition-basic(abs.$color-primary, transparent, true)*/;
+      @include abs.background-transition-basic(transparent, abs.$color-primary);
+
+
+      @include abs.responsive-max-width(900px) {
+        font-size: 12px;
+        width: 130px;
+        height: 30px;
+      }
+
+      @include abs.responsive-max-width(650px) {
+        font-size: 8px;
+        width: 100px;
+        height: 30px;
+      }
+
+    }
+  }
+
+  &-img {
+    @extend %full-space;
+    object-fit: cover;
+    opacity: .5;
+  }
+}

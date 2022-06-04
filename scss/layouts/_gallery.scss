@@ -1,0 +1,15 @@
+/*=============================================
+            _gallery.scss
+================================================*/
+
+.gallery {
+  padding-top: 96px;
+
+  @media(max-width: 1600px) {
+    padding-top: 120px;
+  }
+  .cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

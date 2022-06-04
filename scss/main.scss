@@ -1,0 +1,27 @@
+/*=============================================
+          main.scss
+================================================*/
+// base
+@use './base/reset';
+@use './base/typography';
+@use './base/utils';
+
+
+// layout
+@use './layouts/grid';
+@use './layouts/header';
+@use './layouts/about-us';
+@use './layouts/gallery';
+@use './layouts/footer';
+@use './layouts/navbar';
+
+// components
+@use './components/logo';
+@use './components/main-name';
+@use './components/main-heading';
+@use './components/card';
+@use './components/menu-button';
+
+
+
+
